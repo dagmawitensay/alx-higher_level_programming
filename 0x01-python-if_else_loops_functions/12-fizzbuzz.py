@@ -7,9 +7,9 @@ def fizzbuzz():
         else:
             if i % 3 == 0 and i % 5 == 0:
                 print("FizzBuzz ", end="")
-            elif i % 5:
+            elif i % 5 == 0:
                 print("Buzz ", end="")
-            elif i % 3:
+            elif i % 3 == 0:
                 print("Fizz ", end="")
             else:
                 print(f"{i} ", end="")
