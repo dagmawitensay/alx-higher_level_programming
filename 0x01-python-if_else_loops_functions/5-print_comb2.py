@@ -2,6 +2,6 @@
 
 for i in range(100):
     if i == 99:
-        print(" 99")
+        print("99")
     else:
         print("{0:0=2d}, ".format(i), end="")
