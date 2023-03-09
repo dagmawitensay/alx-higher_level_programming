@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-__builtins__.print("#pythoniscool")
+if __name__ == "__main__":
+    __builtins__.print("#pythoniscool")
