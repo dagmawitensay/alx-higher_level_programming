@@ -6,4 +6,4 @@ for i in names:
     if i.startswith("__"):
         continue
     else:
-        print(i)
+        print("{}".format(i))
