@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-delete_at = __import__('11-delete_at').delete_at
+multiple_returns = __import__('8-multiple_returns').multiple_returns
 
-my_list = [1, 2, 3, 4, 5]
-idx = 3
-new_list = delete_at(my_list, idx)
-print(new_list)
-print(my_list)
+sentence = "At school, I learnt C!"
+length, first = multiple_returns(sentence)
+print("Length: {:d} - First character: {}".format(length, first))
+
