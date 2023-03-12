@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
     if not tuple_a and not tuple_b:
-        return None
+        return (0, 0)
     if not tuple_a:
         return tuple_b
     if not tuple_b:
