@@ -4,7 +4,9 @@ def roman_to_int(roman_string):
     number = 0
 
     for i in range(len(roman_string)):
-        if i + 1 < len(roman_string) and romans[roman_string[i]] < romans[roman_string[i + 1]]:
+        if i + 1 < len(
+                roman_string
+                ) and romans[roman_string[i]] < romans[roman_string[i + 1]]:
             number -= romans[roman_string[i]]
         else:
             number += romans[roman_string[i]]
