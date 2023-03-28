@@ -3,6 +3,7 @@
 This module defines a square with given size
 """
 
+
 class Square:
     """
     A square class that defines a sqaare instace with
