@@ -29,8 +29,8 @@ def matrix_divided(matrix, div):
         temp = []
         for i in row:
             if type(i) not in [int, float]:
-                raise TypeError
-            ("matrix must be a matrix (list of lists) of integers/floats")
+                raise TypeError(\
+                        "matrix must be a matrix (list of lists) of integers/floats")
             temp.append(round(i / div, 2))
         result.append(temp)
 
