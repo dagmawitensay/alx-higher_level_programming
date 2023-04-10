@@ -3,6 +3,7 @@
 This module define a method print square
 """
 
+
 def print_square(size):
     """
     Prints a square of given argument size
