@@ -1,0 +1,63 @@
+The ``100-matrix_mul`` module
+============================
+
+
+Using ``matrix_mul``
+---------------------------
+
+
+Importing the function from the module
+	>>> matrix_mul = __import__("100-matrix_mul").matrix_mul
+
+Checking for moudle docstrig
+	>>> m = __import__("100-matrix_mul").__doc__
+	>>> len(m) > 1
+	True
+
+Checking for nonlist input for m_a
+	>>> matrix_mul(None, [[1, 2], [3, 4], [5, 6]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a must be a list
+
+Checking for nonlist input for m_b
+	>>> matrix_mul([[1, 2]], None)
+	Traceback (most recent call last):
+	...
+	TypeError: m_b must be a list
+
+Checking for list of lists for m_a
+	>>> matrix_mul([1, 1], [[1,2]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a must be a list of lists
+
+Checking for empty list of lis for m_a
+	>>> matrix_mul([[]], [[1, 2]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a can't be empty
+
+Cheking for non float and integer element
+	>>> matrix_mul([[1, 2],[1, 'b']], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a should contain only integers or floats
+
+Checking for non rectangular input
+	>>> matrix_mul([[1, 2, 3], [4, 5, 6], [7, 8]], [[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+	Traceback (most recent call last):
+	...
+	TypeError: each row of m_a must be of the same size
+
+Checking for non multipliable matrices
+	>>> matrix_mul([[1, 2, 3]], [[1, 2], [4, 5]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a and m_b can't be multiplied
+
+Checking for normal input
+	>>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+	[[7, 10], [15, 22]]
+	>>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+	[[13, 16]]
