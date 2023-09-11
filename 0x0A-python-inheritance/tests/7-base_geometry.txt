@@ -1,0 +1,35 @@
+The `7-base_geometry` module
+============================
+
+Using `BaseGeometry`
+--------------------
+
+Importing the class from the module:
+    >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+
+Checking for class docstring:
+    >>> c = __import__("7-base_geometry").BaseGeometry.__doc__
+    >>> len(c) > 1
+    True
+
+Creating an instance of BaseGeometry and testing the area() method:
+    >>> geometry = BaseGeometry()
+    >>> geometry.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+Creating an instance of BaseGeometry and testing the integer_validator() method with a valid value:
+    >>> geometry.integer_validator("width", 5)
+
+Creating an instance of BaseGeometry and testing the integer_validator() method with a non-integer value:
+    >>> geometry.integer_validator("width", "10")
+    Traceback (most recent call last):
+    ...
+    TypeError: width must be an integer
+
+Creating an instance of BaseGeometry and testing the integer_validator() method with a non-positive value:
+    >>> geometry.integer_validator("height", -5)
+    Traceback (most recent call last):
+    ...
+    ValueError: height must be greater than 0
