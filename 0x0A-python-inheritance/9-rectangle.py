@@ -24,9 +24,9 @@ class Rectangle(BaseGeometry):
 
     def __str__(self)L:
         """Prints the rectangle representation"""
-        print("[Rectangle] {:d}/{:d}".format(self.width, self.height))
+        print("[Rectangle] {:d}/{:d}".format(self.__width, self.__height))
 
     def __repr__(self):
         """Returns the rectange representation"""
-        return "[Rectangle] {:d}/{:d}".format(self.width, self.height)
+        return "[Rectangle] {:d}/{:d}".format(self.__width, self.__height)
 
