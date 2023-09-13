@@ -1,31 +1,32 @@
 #!/usr/bin/python3
-"""
-This module provies `student` class.
+""" Module that defines the class Student
 """
 
 
 class Student:
-    """
-    A student class with student assciated attributes
-    and a method to return dictinary representation of student.
-    """
+    """ Class to create student instances """
+
     def __init__(self, first_name, last_name, age):
-        """Instantiation of student"""
+        """ Special method to initialize """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """
-        Returns Json representation of the object.
-        """
-        ans = self.__dict__
-        if attrs and type(attrs) is list:
+        """ Method that returns directory description """
+        obj = self.__dict__.copy()
+        if type(attrs) is list:
+
             for item in attrs:
-                if type(item) != str:
-                    return ans
+                if type(item) is not str:
+                    return obj
 
-            res = {item: ans[item] for item in attrs if item in ans}
-            return res
+            d_list = {}
 
-        return ans
+            for iatr in range(len(attrs)):
+                for satr in obj:
+                    if attrs[iatr] == satr:
+                        d_list[satr] = obj[satr]
+            return d_list
+
+        return obj
