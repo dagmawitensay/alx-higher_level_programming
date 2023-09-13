@@ -21,6 +21,10 @@ class Student:
         """
         ans = self.__dict__
         if attrs and type(attrs) is list:
+            for item in attrs:
+                if type(item) != str:
+                    return ans
+
             res = {item: ans[item] for item in attrs if item in ans}
             return res
 
