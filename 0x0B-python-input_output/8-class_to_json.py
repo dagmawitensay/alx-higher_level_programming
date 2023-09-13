@@ -2,7 +2,6 @@
 """
 This module provies a function `class_to_json`
 """
-import json
 
 
 def class_to_json(obj):
