@@ -20,7 +20,7 @@ class Student:
         Returns Json representation of the object.
         """
         ans = self.__dict__
-        if attrs:
+        if attrs and type(attrs) is list:
             res = {item: ans[item] for item in attrs if item in ans}
             return res
 
