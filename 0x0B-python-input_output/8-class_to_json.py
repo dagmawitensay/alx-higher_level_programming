@@ -7,10 +7,6 @@ import json
 
 def class_to_json(obj):
     """
-    Converts class to json.
+    Converts css to JSON
     """
-    res = {}
-    if hasattr(obj, '__dict__'):
-        res = obj.__dict__.copy()
-
-    return res
+    return obj.__dict__
