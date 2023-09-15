@@ -62,3 +62,14 @@ class Square(Rectangle):
                         self.x = v
                     elif k == 'y':
                         self.y = v
+
+    def to_dictionary(self):
+        """
+        Returns the string representation of the square instance.
+        """
+        return {'id': getattr(self, 'id'),
+                'x': getattr(self, 'x'),
+                'y': getattr(self, 'y'),
+                'width': getattr(self, 'width'),
+                'height': getattr(self, 'height')}
+
