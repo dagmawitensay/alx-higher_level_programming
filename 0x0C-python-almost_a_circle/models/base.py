@@ -3,6 +3,7 @@
 This module defines a base class for models.
 """
 import json
+import csv
 
 
 class Base:
@@ -67,3 +68,57 @@ class Base:
                 new = cls(1)
             new.update(dictionary)
             return new
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Returns a list of instances.
+        """
+        name = cls.__name__ + ".json"
+        with open(name) as file:
+            content = file.read()
+
+        parsed = Base.from_json_string(content)
+        instances = []
+        for obj in parsed:
+            instances.append(cls.create(**obj))
+
+        return instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes and saves the data to a csv file.
+        """
+        name = cls.__name__ + ".csv"
+        with open(name, 'w') as file:
+            if list_objs is None:
+                writer = csv.writer(file)
+                writer.writerows('[]')
+            else:
+                dictionary = [obj.to_dictionary() for obj in list_objs]
+                if cls.__name__ == 'Rectangle':
+                    order = ['id', 'width', 'height', 'x', 'y']
+                else:
+                    order = ['id', 'size', 'x', 'y']
+                writer = csv.DictWriter(file, fieldnames=order)
+                writer.writeheader()
+                print(dictionary)
+                writer.writerows(dictionary)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserialized and return the csv data from a csv file.
+        """
+        data = []
+        name = cls.__name__ + ".csv"
+        with open(name) as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                data.append(dict(row))
+        instances = []
+        for obj in data:
+            instances.append(cls.create(**obj))
+
+        return instances
