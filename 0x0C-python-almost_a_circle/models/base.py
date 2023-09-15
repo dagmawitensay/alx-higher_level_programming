@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module defines a base class for models.
+"""
+import json
 
 
 
@@ -13,3 +17,11 @@ class Base:
             Base.__nb_objects += 1
             id = Base.__nb_objects
         self.id = id
+
+    def to_json_string(list_dictionaries):
+        """
+        Returns the JSON sring reprsentation of list_dictionaries.
+        """
+        if not list_dictionaries or list_dictionaries == []:
+            return "[]"
+        return json.dumps(list_dictionaries)

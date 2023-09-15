@@ -12,8 +12,9 @@ class TestRectangle(unittest.TestCase):
     """Test the rectangle class"""
     def test_id(self):
         r1 = Rectangle(10, 2)
+        r2 = Rectangle(10, 2)
         r3 = Rectangle(3, 4, 0, 0, 20)
-        self.assertEqual(r1.id, 9)
+        self.assertEqual(r1.id, r2.id - 1)
         self.assertEqual(r3.id, 20)
 
     def test_width(self):
@@ -127,3 +128,9 @@ class TestKwargs(unittest.TestCase):
         r = Rectangle(10, 10, 10, 10)
         r.update(y=1)
         self.assertEqual(r.y, 1)
+
+class TestDictonary(unittest.TestCase):
+    def test_diconary_representation(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        self.assertEqual(r1_dictionary, {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10})

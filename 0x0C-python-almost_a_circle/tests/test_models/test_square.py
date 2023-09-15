@@ -43,3 +43,8 @@ class TestSquare(unittest.TestCase):
         s = Square(5)
         s.update(10, 10, 10, 10)
         self.assertEqual(s.y, 10)
+
+    def test_dictonary_representation(self):
+        s1 = Square(10, 2, 1)
+        s1_dictionary = s1.to_dictionary()
+        self.assertEqual(s1_dictionary, {'id': 1, 'x': 2, 'size': 10, 'y': 1})
